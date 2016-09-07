@@ -1,5 +1,5 @@
 from Database import Database
-from models.Post import Post
+from models.Blog import Blog
 
 Database.initialize()
 
@@ -12,6 +12,6 @@ blog.new_post()
 
 blog.save_to_mongo()
 
-Blog.from_mongo()
+from_database = Blog.from_mongo(blog.id)
 
-blog.get_posts() # Post.from_blog(id)
+print blog.get_posts() # Post.from_blog(id)

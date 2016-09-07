@@ -1,7 +1,7 @@
 import uuid
 import datetime
 import Database
-from models.post import Post
+from models.Post import Post
 
 class Blog(object):
     def __init__(self, author, title, description, id=None):
@@ -40,5 +40,5 @@ class Blog(object):
         blog_data = Database.find_one(collection='blogs', query={'id': id})
         return cls(author=blog_data['author'],
                    title=blog_data['title'],
-                   description==blog_data['description'],
+                   description=blog_data['description'],
                    id=blog_data['id'])
