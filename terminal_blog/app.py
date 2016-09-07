@@ -1,5 +1,8 @@
+from Database import Database
 from models.Post import Post
 
-post = Post("Post1", "Content", "Jonathan")
+Database.initialize()
 
-print post.title
+# post = Post("Post1", "Content", "Jonathan")
+
+print 'Hello'

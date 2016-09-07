@@ -1,3 +1,5 @@
+from Database import Database
+
 class Post(object):
 
     def __init__(self, blog_id, title, content, author, id, data):
