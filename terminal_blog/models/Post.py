@@ -1,9 +1,11 @@
 import uuid
 from Database import Database
+import datetime
 
 class Post(object):
 
-    def __init__(self, blog_id, title, content, author, data, id=None):
+    def __init__(self, blog_id, title, content, author,
+                 date=datetime.datetime.utcnow(), id=None):
         self.blog_id = blog_id
         self.title = title
         self.content = content
@@ -32,6 +34,6 @@ class Post(object):
     def from_blog(id):
         return [
             post for post in Database.find(
-                    colleciton='posts', query={'blog_id': id}
+                    collection='posts', query={'blog_id': id}
                 )
         ]

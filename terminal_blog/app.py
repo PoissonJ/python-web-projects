@@ -3,6 +3,7 @@ from models.Post import Post
 
 Database.initialize()
 
-# post = Post("Post1", "Content", "Jonathan")
+posts = Post.from_blog(id='123')
 
-print 'Hello'
+for post in posts:
+    print post
