@@ -1,6 +1,6 @@
 import uuid
 import datetime
-import Database
+from Database import Database
 from models.Post import Post
 
 class Blog(object):
@@ -11,9 +11,9 @@ class Blog(object):
         self.id = uuid.uuid4().hex if id is None else id
 
     def new_post(self):
-        title = input("Enter post title: ")
-        content = input("Enter post content: ")
-        date = input("Enter post date, or leave blank for today (in format DDMMYYYY): ")
+        title = raw_input("Enter post title: ")
+        content = raw_input("Enter post content: ")
+        date = raw_input("Enter post date, or leave blank for today (in format DDMMYYYY): ")
         post = Post(blog_id=self.id,
                     title=title,
                     content=content,
