@@ -13,7 +13,7 @@ class Menu(object):
         pass
 
     def run_menu(self):
-        read_or_write = input("Do you want to (R) or write (W) blogs?")
+        read_or_write = raw_input("Do you want to (R) or write (W) blogs? ")
         if read_or_write == 'R':
             self._list_blogs()
             self._view_blog()
@@ -32,7 +32,7 @@ class Menu(object):
     def _prompt_user_for_account(self):
         title = raw_input("Enter blog title: ")
         description = raw_input("Enter blog description: ")
-        blog = Blog(self.user, self.title, self.description)
+        blog = Blog(self.user, title, description)
         blog.save_to_mongo()
         self.user_blog = blog
 
@@ -45,11 +45,12 @@ class Menu(object):
             print ''
 
     def _view_blog(self):
-        blog_to_see = input("Enter the ID of the blog you'd like to read: ")
+        blog_to_see = raw_input("Enter the ID of the blog you'd like to read: ")
         blog = Blog.get_from_mongo(blog_to_see)
+        print 'Blog returned:', blog
         posts = blog.get_posts()
         for post in posts:
             print 'Date: ', post['created_date']
             print 'Title: ', post['title']
             print ''
-            print post['title']
+            print post['content']
